@@ -165,6 +165,25 @@ settings:
 importers:
 
   .:
+    dependencies:
+      chalk:
+        specifier: ^6.0.1
+        version: 6.0.1
+      cli-progress:
+        specifier: ^3.12.0
+        version: 3.12.0
+      cross-env:
+        specifier: ^10.1.0
+        version: 10.1.0
+      execa:
+        specifier: ^10.0.1
+        version: 10.2.1
+      levenshtein:
+        specifier: ^1.0.5
+        version: 1.0.5
+      wrap-ansi:
+        specifier: ^10.0.2
+        version: 10.0.2
     devDependencies:
       '@eslint/js':
         specifier: ^9.9.0
@@ -178,30 +197,15 @@ importers:
       '@vitest/coverage-v8':
         specifier: ^2.0.0
         version: 2.1.9(supports-color@7.2.0)(vitest@2.1.9(@types/node@22.20.5)(supports-color@7.2.0))
-      chalk:
-        specifier: ^6.0.1
-        version: 6.0.1
-      cli-progress:
-        specifier: ^3.12.0
-        version: 3.12.0
-      cross-env:
-        specifier: ^10.1.0
-        version: 10.1.0
       eslint:
         specifier: ^9.9.0
         version: 9.39.5(supports-color@7.2.0)
       eslint-plugin-import:
         specifier: ^2.29.1
         version: 2.32.0(@typescript-eslint/parser@8.72.2(eslint@9.39.5(supports-color@7.2.0))(supports-color@7.2.0)(typescript@5.9.3))(eslint@9.39.5(supports-color@7.2.0))(supports-color@7.2.0)
-      execa:
-        specifier: ^10.0.1
-        version: 10.2.1
       husky:
         specifier: ^9.1.0
         version: 9.1.7
-      levenshtein:
-        specifier: ^1.0.5
-        version: 1.0.5
       lint-staged:
         specifier: ^15.0.0
         version: 15.5.2(supports-color@7.2.0)
@@ -223,9 +227,6 @@ importers:
       vitest:
         specifier: ^2.0.0
         version: 2.1.9(@types/node@22.20.5)(supports-color@7.2.0)
-      wrap-ansi:
-        specifier: ^10.0.2
-        version: 10.0.2
 
 packages:
 

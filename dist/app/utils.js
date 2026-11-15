@@ -3,6 +3,38 @@ import path from 'node:path';
 import chalk from 'chalk';
 import { splitCommandLine } from '../cli/argument-parser.js';
 /**
+ * Находит корень рабочего пространства, ища pnpm-workspace.yaml
+ * начиная с указанной директории и поднимаясь вверх по дереву.
+ * @param startDir - Директория для начала поиска (по умолчанию: process.cwd())
+ * @returns Абсолютный путь к корню рабочего пространства или null, если не найден
+ */
+export async function findWorkspaceRoot(startDir = process.cwd()) {
+  let currentDir = path.resolve(startDir);
+  const root = path.parse(currentDir).root;
+  while (currentDir !== root) {
+    const workspaceFile = path.join(currentDir, 'pnpm-workspace.yaml');
+    try {
+      await readFile(workspaceFile, 'utf8');
+      return currentDir;
+    } catch (error) {
+      if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
+        // Файл не найден, продолжаем подниматься вверх
+        currentDir = path.dirname(currentDir);
+        continue;
+      }
+      throw error;
+    }
+  }
+  // Проверяем корневую директорию
+  const workspaceFile = path.join(root, 'pnpm-workspace.yaml');
+  try {
+    await readFile(workspaceFile, 'utf8');
+    return root;
+  } catch {
+    return null;
+  }
+}
+/**
  * Читает манифест корневого package.json.
  * @param root - Абсолютный путь к корню монорепозитория
  * @returns Разобранный манифест пакета

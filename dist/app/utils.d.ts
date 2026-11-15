@@ -1,5 +1,12 @@
 import type { PackageManifest } from '../runner/types.js';
 /**
+ * Находит корень рабочего пространства, ища pnpm-workspace.yaml
+ * начиная с указанной директории и поднимаясь вверх по дереву.
+ * @param startDir - Директория для начала поиска (по умолчанию: process.cwd())
+ * @returns Абсолютный путь к корню рабочего пространства или null, если не найден
+ */
+export declare function findWorkspaceRoot(startDir?: string): Promise<string | null>;
+/**
  * Читает манифест корневого package.json.
  * @param root - Абсолютный путь к корню монорепозитория
  * @returns Разобранный манифест пакета

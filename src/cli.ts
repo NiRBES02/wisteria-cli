@@ -1,9 +1,6 @@
-import { fileURLToPath } from 'node:url';
-import path from 'node:path';
 import { parseArguments } from './runner/arguments.js';
 import { AppOrchestrator } from './app/orchestrator.js';
-
-const rootDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+import { findWorkspaceRoot } from './app/utils.js';
 
 /**
  * Точка входа CLI.
@@ -11,7 +8,19 @@ const rootDirectory = path.resolve(path.dirname(fileURLToPath(import.meta.url)),
  */
 async function main(): Promise<void> {
   const options = parseArguments(process.argv.slice(2));
-  const orchestrator = new AppOrchestrator(rootDirectory);
+
+  // Находим корень рабочего пространства от текущей рабочей директории
+  const workspaceRoot = await findWorkspaceRoot();
+  if (!workspaceRoot) {
+    console.error(
+      'Error: No pnpm-workspace.yaml found in current directory or any parent directory.',
+    );
+    console.error('Run wisteria from within a pnpm workspace.');
+    process.exitCode = 1;
+    return;
+  }
+
+  const orchestrator = new AppOrchestrator(workspaceRoot);
   process.exitCode = await orchestrator.run(options);
 }
 

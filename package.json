@@ -1,6 +1,6 @@
 {
   "name": "wisteria-cli",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Monorepo task runner with parallel execution, interactive console, and extensible command system",
   "main": "dist/cli.js",
   "types": "dist/cli.d.ts",
@@ -59,27 +59,30 @@
       "onFail": "download"
     }
   },
+  "dependencies": {
+    "chalk": "^6.0.1",
+    "cli-progress": "^3.12.0",
+    "cross-env": "^10.1.0",
+    "execa": "^10.0.1",
+    "levenshtein": "^1.0.5",
+    "wrap-ansi": "^10.0.2"
+  },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@stylistic/eslint-plugin": "^2.6.0",
     "@types/node": "^22.0.0",
     "@vitest/coverage-v8": "^2.0.0",
-    "chalk": "^6.0.1",
     "cli-progress": "^3.12.0",
-    "cross-env": "^10.1.0",
     "eslint": "^9.9.0",
     "eslint-plugin-import": "^2.29.1",
-    "execa": "^10.0.1",
     "husky": "^9.1.0",
-    "levenshtein": "^1.0.5",
     "lint-staged": "^15.0.0",
     "prettier": "^3.3.0",
     "tsx": "^4.19.0",
     "typedoc": "^0.26.0",
     "typescript": "^5.5.0",
     "typescript-eslint": "^8.0.0",
-    "vitest": "^2.0.0",
-    "wrap-ansi": "^10.0.2"
+    "vitest": "^2.0.0"
   },
   "type": "module",
   "engines": {
