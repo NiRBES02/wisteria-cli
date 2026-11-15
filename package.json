@@ -1,6 +1,6 @@
 {
   "name": "wisteria-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Monorepo task runner with parallel execution, interactive console, and extensible command system",
   "main": "dist/cli.js",
   "types": "dist/cli.d.ts",
