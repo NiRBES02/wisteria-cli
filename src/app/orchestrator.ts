@@ -16,7 +16,7 @@ import { assignPackageColors } from './colors.js';
 import { printBanner } from './banner.js';
 import { formatCommand, readRootManifest } from './utils.js';
 import { setupSignalHandlers } from './signals.js';
-import { setLocale, t } from '../i18n/index.js';
+import { setLocale, t, defaultLocale } from '../i18n/index.js';
 
 /**
  * Основной оркестратор приложения Wisteria CLI.
@@ -44,10 +44,8 @@ export class AppOrchestrator {
     process.env['FORCE_COLOR'] ??= '1';
     chalk.level = 1;
 
-    // Set locale early, before any translations are used
-    if (options.locale) {
-      await setLocale(options.locale);
-    }
+    const localeToUse = options.locale ?? defaultLocale;
+    await setLocale(localeToUse);
 
     const rootManifest = await readRootManifest(this.rootDirectory);
     const packages = await discoverWorkspacePackages(this.rootDirectory);

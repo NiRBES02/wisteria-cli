@@ -4,6 +4,9 @@
   "description": "Monorepo task runner with parallel execution, interactive console, and extensible command system",
   "main": "dist/cli.js",
   "types": "dist/cli.d.ts",
+  "bin": {
+    "wisteria": "./dist/cli.js"
+  },
   "exports": {
     ".": {
       "import": "./dist/public-api.js",
@@ -35,10 +38,20 @@
     "task-runner",
     "parallel",
     "workspace",
-    "cli"
+    "cli",
+    "pnpm",
+    "orchestrator"
   ],
-  "author": "",
+  "author": "NiRBES02",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NiRBES02/wisteria-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NiRBES02/wisteria-cli/issues"
+  },
+  "homepage": "https://github.com/NiRBES02/wisteria-cli#readme",
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
@@ -68,7 +81,6 @@
     "vitest": "^2.0.0",
     "wrap-ansi": "^10.0.2"
   },
-  "packageManager": "pnpm@12.11.2",
   "type": "module",
   "engines": {
     "node": ">=20.0.0"

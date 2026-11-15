@@ -2,7 +2,18 @@ import js from '@eslint/js';
 import typescriptEslint from 'typescript-eslint';
 
 export default typescriptEslint.config(
-  { ignores: ['dist/**', 'node_modules/**', '*.config.*', 'coverage/**', '.husky/**'] },
+  {
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      '*.config.*',
+      'coverage/**',
+      '.husky/**',
+      'docs/**',
+      'tests/**',
+      'tsconfig.test.json',
+    ],
+  },
   js.configs.recommended,
   ...typescriptEslint.configs.recommended,
   ...typescriptEslint.configs.stylistic,

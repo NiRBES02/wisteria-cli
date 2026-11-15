@@ -1,0 +1,1 @@
+{"version":3,"file":"custom-commands.d.ts","sourceRoot":"","sources":["../../src/commands/custom-commands.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,eAAe,EAAE,MAAM,uBAAuB,CAAC;AAC7D,OAAO,KAAK,EAAE,cAAc,EAAE,MAAM,YAAY,CAAC;AAGjD;;;;;;;;;;;;;GAaG;AACH,wBAAgB,sBAAsB,CAAC,QAAQ,EAAE,eAAe,EAAE,QAAQ,EAAE,cAAc,GAAG,IAAI,CAiChG"}

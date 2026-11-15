@@ -11,5 +11,8 @@ export default defineConfig({
       exclude: ['tests/**', 'src/cli.ts', 'dist/**'],
     },
     globals: true,
+    typecheck: {
+      tsconfig: './tsconfig.test.json',
+    },
   },
 });
